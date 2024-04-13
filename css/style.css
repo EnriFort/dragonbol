@@ -1,0 +1,18 @@
+body {
+    /* azzurrino b3d4fc*/
+    background-color:#b3d4fc;
+    font-family: 'Lato';
+    margin: 0px;
+}
+
+footer.copyright{
+    padding:1rem 0;
+    background: var(--secondary);
+    color:var(--pure);
+    text-align: center;
+    font-size: 0.75rem;
+}
+footer.copyright a{
+    color:var(--primary);
+    text-decoration: none;
+}
