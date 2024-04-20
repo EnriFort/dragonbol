@@ -19,12 +19,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $username = $_POST["username"];
     $password = $_POST["password"];
 
-    $sql = "SELECT * FROM users WHERE username='$username'";
+    $sql = "SELECT * FROM saiyans WHERE username='$username'";
     $result = $conn->query($sql);
 
     if ($result->num_rows == 1) {
         $row = $result->fetch_assoc();
-        if (password_verify($password, $row["password"])) {
+        if (md5($password) === $row["password"]) { // Check if MD5 hash matches
             // Store user ID in session variable
             $_SESSION['user_id'] = $row['id'];
             // Redirect user to profile page
@@ -35,10 +35,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
     } else {
         echo "<strong><h2>User not found<strong></h2>";
-        
         echo '<img src="../img/yamca.webp" width=700px height=500px>';
     }
 }
+
 
 $conn->close();
 ?>

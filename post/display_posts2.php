@@ -3,8 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-
     <style>
         body {
             /* azzurrino b3d4fc*/
@@ -70,6 +68,7 @@
 
     </style>
 </head>
+
 <body>
     <?php
         // Include database connection and functions to retrieve posts
@@ -77,11 +76,16 @@
         require_once 'functions.php';
 
         // Retrieve selected category from form submission
-        $category = $_GET['category'] ?? '';
+        $post_category = $_GET['category'] ?? '';
 
-        // Retrieve posts from the database 
-        $posts = getPosts(); 
-       
+        // Retrieve posts from the database based on the selected category
+        
+        if ($post_category == "all" || empty($post_category)) {
+            $posts = getPosts(); // Fetch all posts if no category is selected or if 'all' is selected
+        } else {
+            $posts = getPostsByCategory($post_category); // Fetch posts based on selected category
+        }
+
         sort($posts);
         $posts = array_reverse($posts);
     ?>
@@ -90,6 +94,16 @@
     <div class="div-entry-content"> 
         <h3 class="posts-sec">Recent Posts:</h3>
     
+        <form action="index2.php" method="GET">
+            <label for="category">Order by Category:</label>
+            <select id="category" name="category">
+                <option value="all" <?php if ($post_category == 'all') echo 'selected'; ?>>All</option>
+                <option value="discussion" <?php if ($post_category == 'discussion') echo 'selected'; ?>>Discussion</option>
+                <option value="image" <?php if ($post_category == 'image') echo 'selected'; ?>>Image</option>
+                <option value="question" <?php if ($post_category == 'question') echo 'selected'; ?>>Question</option>
+            </select>
+            <input type="submit" value="Filter Posts">
+        </form>
         <br>
         <?php
             foreach ($posts as $post) {
@@ -105,6 +119,24 @@
                     echo '<div>';
                     echo '<h3 class="post-title">' . $post['post_title'] . '</h3>';
 
+
+                    // Apply different category classes based on category type
+                    $categoryClass = 'category-rectangle';
+                    switch ($post['post_category']) {
+                        case 'discussion':
+                            $categoryClass .= ' category-discussion';
+                            break;
+                        case 'image':
+                            $categoryClass .= ' category-image';
+                            break;
+                        case 'question':
+                            $categoryClass .= ' category-question';
+                            break;
+                        default:
+                            break;
+                    }
+                    echo '<div class="' . $categoryClass . '">' . $post['post_category'] . '</div>';
+                    echo '<br>';
                     
                     if (!empty($post['post_image'])) {
                         $profileImage = $post['post_image'];

@@ -26,6 +26,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $post_title = $_POST["post_title"]; 
     $post_text = $_POST["post_text"];
     $post_image = $_FILES["post_image"]["name"];
+    $post_category = $_POST["post_category"];
 
     // Upload post image
     $target_dir = "../post_images/";
@@ -36,7 +37,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $created_at = date("Y-m-d H:i:s");
 
     // Insert post data into the database, including the creation date
-    $sql = "INSERT INTO posts (user_id, post_title, post_text, post_image, created_at) VALUES ('$user_id', '$post_title', '$post_text', '$post_image', '$created_at')";
+    $sql = "INSERT INTO posts (user_id, post_title, post_text, post_image, created_at, post_category) VALUES ('$user_id', '$post_title', '$post_text', '$post_image', '$created_at', '$post_category')";
     if ($conn->query($sql) === TRUE) {
         echo "New post added successfully";
     } else {

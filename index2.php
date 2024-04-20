@@ -130,7 +130,7 @@
         
     <?php
         // Include PHP script to fetch and display posts
-        include 'post/display_posts.php';
+        include 'post/display_posts2.php';
     ?>
 
     <footer class="copyright">

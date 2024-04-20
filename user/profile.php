@@ -23,7 +23,7 @@ if ($conn->connect_error) {
 
 // Retrieve user information from the database
 $user_id = $_SESSION['user_id'];
-$sql = "SELECT * FROM users WHERE id = $user_id";
+$sql = "SELECT * FROM saiyans WHERE id = $user_id";
 $result = $conn->query($sql);
 
 if ($result->num_rows == 1) {

@@ -41,11 +41,6 @@ if (isset($_POST["submit"])) {
     }
 }
 
-// Check if file already exists
-if (file_exists($target_file)) {
-    echo "Sorry, file already exists.";
-    $uploadOk = 0;
-}
 
 // Check file size
 if ($_FILES["new_profile_image"]["size"] > 500000) {
@@ -69,7 +64,7 @@ if ($uploadOk == 0) {
         echo "The file " . basename($_FILES["new_profile_image"]["name"]) . " has been uploaded.";
         // Update profile image path in database
         $profile_image_path = $target_file;
-        $sql = "UPDATE users SET profile_image = '$profile_image_path' WHERE id = $user_id";
+        $sql = "UPDATE saiyans SET profile_image = '$profile_image_path' WHERE id = $user_id";
         if ($conn->query($sql) === TRUE) {
             echo "Profile image updated successfully";
             // Redirect user to profile page

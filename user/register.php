@@ -18,9 +18,9 @@ session_start();
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $username = $_POST["username"];
     $email = $_POST["email"];
-    $password = password_hash($_POST["password"], PASSWORD_DEFAULT);
+    $password = md5($_POST["password"]);
 
-    $sql = "INSERT INTO users (username, email, password) VALUES ('$username', '$email', '$password')";
+    $sql = "INSERT INTO saiyans (username, email, password) VALUES ('$username', '$email', '$password')";
 
     if ($conn->query($sql) === TRUE) {
         // Retrieve the newly created user's ID
