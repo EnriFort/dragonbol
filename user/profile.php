@@ -33,8 +33,6 @@ if ($result->num_rows == 1) {
     $email = $row["email"];
     $profile_image = $row["profile_image"];
 } else {
-    // User not found or session expired, handle appropriately
-    // For example, redirect the user to login page
     header("Location: login.php");
     exit;
 }
@@ -49,8 +47,13 @@ $conn->close();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>User Profile</title>
     <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto&display=swap">
     <style>
-        
+        body {  
+            background-color: #b3d4fc;
+            margin: 0;
+            padding: 0;
+        }
         .container {
             max-width: 600px;
             margin: 50px auto;
@@ -124,7 +127,6 @@ $conn->close();
         <div style="text-align: center;";>
             <p><strong>Username:</strong> <?php echo $username; ?></p>
             <p><strong>Email:</strong> <?php echo $email; ?></p>
-            <!-- Add more user information as needed -->
         </div>
         <img src="<?php echo $profile_image; ?>" alt="Profile Image" class="profile-image">
         

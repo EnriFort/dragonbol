@@ -5,7 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DragonBol fanpage</title>
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto&display=swap">
     <style>
+
+        body {
+            background-color:#b3d4fc;
+            margin: 0px;
+        }
 
         .entry-title {
             font-family: 'Arial Black', sans-serif;
@@ -117,11 +123,14 @@
                     </select>
                     <label for="post_image">Image:</label>
                     <input type="file" id="post_image" name="post_image" accept="image/*">
+                    <br>
+                    <br>
                     <label for="post_text">Text:</label>
-                    <textarea id="post_text" name="post_text" rows="4" required></textarea>
+                    <br>
+                    <textarea id="post_text" name="post_text" rows="4" style="width: 85%;" required></textarea>
                     <br>
                     <br>
-                    <input type="submit" value="Post">
+                    <input type="submit" value="Post">  
                 </form>
             </div>
         <?php endif; ?>        

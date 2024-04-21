@@ -5,10 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DragonBol fanpage</title>
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto&display=swap">
     <style>
-
+        
+        body {
+            background-color:#b3d4fc;
+            margin: 0px;
+        }
         .entry-title {
-            font-family: 'Arial Black', sans-serif;
             font-size: 36px;
             color: #fef679;
             text-shadow: 3px 3px #d9b308;
@@ -19,6 +23,7 @@
             max-width: 500px;
         }
         .div-paragraph{
+            
             text-align: justify;
             text-justify: inter-word;
             margin: left;
@@ -55,7 +60,6 @@
             padding: 10px;
         }
         
-
     </style>
 </head>
 <body>
@@ -89,7 +93,7 @@
     <div class="div-entry-content">
         
         <h1 class="entry-title">DragonBol Hub<img src="img/flyingNimbus.png" alt="Dragon Ball Logo" width="70px" style="vertical-align: middle; padding-left: 10px;"></h1>
-        <figcaption style="font-size: 0.8em;">Unleash Your Inner Saiyan: Where Fans Gather to Power Up!</figcaption>
+        <figcaption style="font-size: 1em;">Unleash Your Inner Saiyan: Where Fans Gather to Power Up!</figcaption>
         <br>
         <img src="img/goku.jpg" alt="goku" width="200" height="400">
 
@@ -102,7 +106,6 @@
         
         <hr>
         <!-- Post Form -->
-        
         <?php if ($isLoggedIn): ?>
             <div class="post-form">
                 <h3>Add a Post</h3>
@@ -117,14 +120,18 @@
                     </select>
                     <label for="post_image">Image:</label>
                     <input type="file" id="post_image" name="post_image" accept="image/*">
+                    <br>
+                    <br>
                     <label for="post_text">Text:</label>
-                    <textarea id="post_text" name="post_text" rows="4" required></textarea>
+                    <br>
+                    <textarea id="post_text" name="post_text" rows="4" style="width: 85%;" required></textarea>
                     <br>
                     <br>
                     <input type="submit" value="Post">
                 </form>
             </div>
-        <?php endif; ?>        
+        <?php endif; ?> 
+
     </div>
 
         

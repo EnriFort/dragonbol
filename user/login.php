@@ -1,4 +1,8 @@
 <?php
+
+// Define dynamic CSS values
+$fontColor = 'red';
+
 // Database connection
 $servername = "localhost";
 $username = "enri"; 
@@ -31,14 +35,21 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             header("Location: profile.php");
             exit;
         } else {
-            echo "Invalid password";
+            echo '<div style="color: ' . $fontColor . ';">';
+            echo '<br>';
+            echo "<strong><h2>Invalid Password</h2></strong>";
+            echo '</div>';
+            include 'login.html';
         }
     } else {
-        echo "<strong><h2>User not found<strong></h2>";
+        echo '<body style="background-color: #dac579;">';
+        echo '<div style="color: ' . $fontColor . '; text-align: center;">';
+        echo '<br>';
+        echo "<strong><h2>User not found</h2></strong>";
         echo '<img src="../img/yamca.webp" width=700px height=500px>';
+        echo '</body>';
     }
 }
-
 
 $conn->close();
 ?>
