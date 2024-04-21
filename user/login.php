@@ -45,7 +45,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         echo '<body style="background-color: #dac579;">';
         echo '<div style="color: ' . $fontColor . '; text-align: center;">';
         echo '<br>';
-        echo "<strong><h2>User not found</h2></strong>";
+        echo "<strong><h2>USER NOT FOUND</h2></strong>";
         echo '<img src="../img/yamca.webp" width=700px height=500px>';
         echo '</body>';
     }
