@@ -47,6 +47,7 @@ $conn->close();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>User Profile</title>
     <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/navbar.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto&display=swap">
     <style>
         body {  
@@ -117,10 +118,30 @@ $conn->close();
     </style>
 </head>
 <body>
-    <div style="padding: 10px;">
-        <a href="../index.php">Home</a>
+
+
+    <div class="topnav">
+            <a href="../index.php">Home</a>
+            <a href="../about.html">About</a>
+            <div class="login-container">
+                <?php
+                    // Start the session
+
+                    $isLoggedIn = isset($_SESSION['user_id']);
+
+                    // Check if user is logged in
+                    if (isset($_SESSION['user_id'])) {
+                        echo '<a class="active" href="user/profile.php">Profile</a>';
+                        echo '<a href="user/../logout.php">Logout</a>';
+                    } else {
+                        echo '<a href="user/login.html"> Login</a>';
+                        echo '<a href="user/register.html"> Register</a>';
+                    }
+                ?>  
+            </div>
     </div>
-    <hr>
+
+
     <div class="container">
         
         <h2>User Profile</h2>

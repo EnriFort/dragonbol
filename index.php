@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DragonBol fanpage</title>
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/navbar.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto&display=swap">
     <style>
         
@@ -52,58 +53,70 @@
             background-color: #bad5f5;
         }
 
-        .login-signup{
-            padding: 10px;
+        .container {
+            display: grid;
+            align-items: center; 
+            grid-template-columns: 1fr 3fr ;
+            column-gap: 5px;
         }
 
-        .about{
-            padding: 10px;
+        .text {
+            font-size: 18px;
         }
-        
+
+        hr {
+          width: 100%;
+          border: 0;
+          height: 1px;
+          background-image: linear-gradient(to right, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.75), rgba(255, 255, 255, 0));
+        }
+
     </style>
 </head>
 <body>
 
-    <?php
-        // Start the session
-        session_start();
-        $isLoggedIn = isset($_SESSION['user_id']);
+    <div class="topnav">
+        <a class="active" href="index.php">Home</a>
+        <a href="about.html">About</a>
+        <div class="login-container">
+            <?php
+                // Start the session
+                session_start();
+                $isLoggedIn = isset($_SESSION['user_id']);
 
-        // Check if user is logged in
-        if (isset($_SESSION['user_id'])) {
-            echo '<div class="login-signup">';
-            echo '<a href="user/profile.php" class="profile-button">Profile</a>';
-            echo '<a href="user/logout.php" style="margin-left: 10px;">Logout</a>';
-            echo '</div>';
-        } else {
-            echo '<div class="login-signup">';
-            echo '<strong>Already a member?</strong><a href="user/login.html"> Login</a>';
-            echo '<br>';
-            echo '<strong>New user?</strong><a href="user/register.html"> Register</a>';
-            echo '</div>';
-        }
-    ?>
-
-    
-    <div class="about">
-        <a href="about.html" class="profile-button">About</a> this site
+                // Check if user is logged in
+                if (isset($_SESSION['user_id'])) {
+                    echo '<a href="user/profile.php">Profile</a>';
+                    echo '<a href="user/logout.php">Logout</a>';
+                } else {
+                    echo '<a href="user/login.html"> Login</a>';
+                    echo '<a href="user/register.html"> Register</a>';
+                }
+            ?>  
+        </div>
     </div>
     
-    <hr>
     <div class="div-entry-content">
         
         <h1 class="entry-title">DragonBol Hub<img src="img/flyingNimbus.png" alt="Dragon Ball Logo" width="70px" style="vertical-align: middle; padding-left: 10px;"></h1>
         <figcaption style="font-size: 1em;">Unleash Your Inner Saiyan: Where Fans Gather to Power Up!</figcaption>
         <br>
-        <img src="img/goku.jpg" alt="goku" width="200" height="400">
 
-        <p class="div-paragraph">
-            <strong> Step into the World of Dragon Ball with DragonBol Hub! Dive deep into the multiverse of Dragon Ball as fans unite to dissect episodes,
-            analyze characters, speculate on theories, and celebrate the epic legacy of this iconic series. Whether you're a seasoned warrior or a newly awakened fan, join us in exploring every aspect of the Dragon Ball universe. From intense debates to sharing fan art, 
-            DragonBol Hub is your ultimate destination for all things Dragon Ball. Welcome, fellow Saiyans, to your home away from home!
-            </strong>
-        </p>
-        
+
+        <div class="container">
+            <div>
+                <img src="img/goku.jpg" alt="goku" width="200" height="400">
+            </div>
+            <div>
+                <p class="div-paragraph text">
+                    <strong>Dive deep into the multiverse of Dragon Ball as fans unite to dissect episodes,
+                    analyze characters, speculate on theories, and celebrate the epic legacy of this iconic series. Whether you're a seasoned warrior or a newly awakened fan, join us in exploring every aspect of the Dragon Ball universe. From intense debates to sharing fan art, 
+                    DragonBol Hub is your ultimate destination for all things Dragon Ball. Welcome, fellow Saiyans, to your home away from home!
+                    </strong>
+                </p>
+            </div>
+        </div>
+  
         <hr>
         <!-- Post Form -->
         <?php if ($isLoggedIn): ?>
@@ -124,7 +137,7 @@
                     <br>
                     <label for="post_text">Text:</label>
                     <br>
-                    <textarea id="post_text" name="post_text" rows="4" style="width: 85%;" required></textarea>
+                    <textarea id="post_text" placeholder="Write your post here..." name="post_text" rows="4" style="width: 85%;" required></textarea>
                     <br>
                     <br>
                     <input type="submit" value="Post">

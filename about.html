@@ -6,116 +6,92 @@
     <title>About</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/navbar.css">
+    <link rel="stylesheet" href="css/about.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto&display=swap">
     
     <style>
         body {
-            background-color: #b3d4fc;
-            margin: 0;
-            padding: 0;
+          background-color: #b3d4fc;
+          margin: 0;
+          padding: 0;
         }
-        .card-contact:hover {
-            box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
-            background-color: #60a6f8;
+        hr {
+          width: 100%;
+          border: 0;
+          height: 1px;
+          background-image: linear-gradient(to right, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.75), rgba(255, 255, 255, 0));
         }
-
-        .container {
-            padding: 2px 16px;
-        }
-
-        .card-contact {
-            
-            background-color: #6fa7e9;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
-            padding: 15px;
-            border-radius: 8px;
-            border: 1px solid #092c56;
-            width: 50%;
-            margin-bottom: 25px;
-            text-align: center;
-        }
-
-        .image{
-            display: block;
-            margin-left: auto;
-            margin-right: auto;
-            width: 50%;
-        }
-
-        .space{
-            margin-left: 30%;
-        }
-
-        .div-entry-contact {
-            margin: 0px 50px 0;
-        }
-
-        .posts-sec {
-            text-transform: uppercase;
-            color: #264cf7;
-            text-shadow: 1px 1px #d9b308;
-            padding: 10px;
-            
-        }
-
     </style>
 </head>
 <body>
     
-    <div style="padding: 10px;">
-        <a href="index.php">Home</a>
+    <div class="topnav">
+        <a  href="index.php">Home</a>
+        <a class="active" href="about.html">About</a>
+    </div>
+    
+    <div class="about-section">
+      <h2>Our Team</h2>
+      <p>Meet the Founder: Discover the Vision Behind DragonBol Hub</p>
     </div>
     <hr>
-    <div>
-        <h2 class="posts-sec">About</h2>
-    </div>
-    
-    
-    <div>
-        <p style="padding: 10px;">
-            <strong> Welcome to DragonBol Hub, a place where fans of Dragon Ball can come together to discuss episodes, characters, and more!</strong>
-            <br>
-        </p>
-    </div>
-
-    
-    <div class="space">
-        Meet the Founder: Discover the Vision Behind DragonBol Hub
-        <br>
-        <br>
-        <div class="card-contact">
-            <img class="image" src="img/user1.png" style="width:25%">
-                <h2><b>Eric</b></h2>
-                <p><strong>Founder</strong></p>
-                <br>
-                <p>ciao</p>
+    <div class="row">
+        <div class="column">
+          <div class="card">
+            <img src="img/eric.jpg" alt="Eric" style="width:100%">
+            <div class="container">
+              <h2>Eric</h2>
+              <p class="title">Founder</p>
+              <p>Some text that describes me lorem ipsum ipsum lorem.</p>
+              <p>eric@example.com</p>
+              <p><button class="button">Contact</button></p>
+            </div>
+          </div>
         </div>
 
-        <div class="card-contact">
-            <img class="image" src="img/user2.png" style="width:25%">
-                <h2><b>Emme</b></h2>
-                <p><strong>Founder</strong></p>
-                <br>
-                <p>ciao</p>
+        <div class="column">
+          <div class="card">
+            <img src="img/elle.webp" alt="Elle" style="width:100%">
+            <div class="container">
+              <h2>Elle</h2>
+              <p class="title">Designer</p>
+              <p>Some text that describes me lorem ipsum ipsum lorem.</p>
+              <p>elle@example.com</p>
+              <p><button class="button">Contact</button></p>
+            </div>
+          </div>
         </div>
 
-        <div class="card-contact">
-            <img class="image" src="img/user3.png" style="width:25%">
-                <h2><b>Elle</b></h2>
-                <p><strong>Founder</strong></p>
-                <br>
-                <p>ciao</p>
+        <div class="column">
+            <div class="card">
+              <img src="img/dam.jpg" alt="Dam" style="width:100%">
+              <div class="container">
+                <h2>Dam</h2>
+                <p class="title">Designer</p>
+                <p>Some text that describes me lorem ipsum ipsum lorem.</p>
+                <p>dam@example.com</p>
+                <p><button class="button">Contact</button></p>
+              </div>
+            </div>
+          </div>
+      
+        <div class="column">
+          <div class="card">
+            <img src="img/emme.jpg" alt="Mike" style="width:100%">
+            <div class="container">
+              <h2>Emme</h2>
+              <p class="title">Art Director</p>
+              <p>Some text that describes me lorem ipsum ipsum lorem.</p>
+              <p>emme@example.com</p>
+              <p><button class="button">Contact</button></p>
+            </div>
+          </div>
         </div>
+      
+        
+      </div>
 
-        <div class="card-contact">
-            <img class="image" src="img/user1.png" style="width:25%">
-                <h2><b>Dam</b></h2>
-                <p><strong>Founder</strong></p>
-                <br>
-                <p>ciao</p>
-        </div>
-    </div>
-    <br>
 
     <footer class="copyright">
         <div>

@@ -77,7 +77,10 @@ function getPostsByCategory($post_category) {
     $result = $conn->query($sql);
 
     if ($result === false) {
-        exit($conn->error);
+        echo '<div style="text-align: left; padding: 20px;">';
+        echo "An error occurred while executing the query: " . $conn->error;
+        echo '</div>';
+        exit;
     } else {
          // Check if any posts were found
         if ($result->num_rows > 0) {
