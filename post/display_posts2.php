@@ -67,6 +67,7 @@
         }
 
     </style>
+
 </head>
 
 <body>
@@ -76,7 +77,7 @@
         require_once 'functions.php';
 
         // Retrieve selected category from form submission
-        $post_category = $_GET['category'] ?? '';
+        $post_category = $_POST['category'] ?? '';
 
         // Retrieve posts from the database based on the selected category
         
@@ -94,7 +95,7 @@
     <div class="div-entry-content"> 
         <h3 class="posts-sec">Recent Posts:</h3>
     
-        <form action="index2.php" method="GET">
+        <form action="index2.php" method="POST">
             <label for="category">Order by Category:</label>
             <select id="category" name="category">
                 <option value="all" <?php if ($post_category == 'all') echo 'selected'; ?>>All</option>
@@ -104,6 +105,7 @@
             </select>
             <input type="submit" value="Filter Posts">
         </form>
+
         <br>
         <?php
             foreach ($posts as $post) {
