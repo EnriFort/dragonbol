@@ -23,20 +23,23 @@ if ($conn->connect_error) {
 
 // Retrieve user information from the database
 $user_id = $_SESSION['user_id'];
-$sql = "SELECT * FROM saiyans WHERE id = $user_id";
-$result = $conn->query($sql);
+$sql = "SELECT * FROM saiyans WHERE id = ?";
+$stmt = $conn->prepare($sql);
+$stmt->bind_param("i", $user_id);
+$stmt->execute();
+$result = $stmt->get_result();
 
 if ($result->num_rows == 1) {
     // User found, fetch user details
     $row = $result->fetch_assoc();
-    $username = $row["username"];
-    $email = $row["email"];
-    $profile_image = $row["profile_image"];
+    $username = htmlspecialchars($row["username"]);
+    $email = htmlspecialchars($row["email"]);
+    $profile_image = htmlspecialchars($row["profile_image"]);
 } else {
     header("Location: login.php");
     exit;
 }
-
+$stmt->close();
 $conn->close();
 ?>
 
@@ -118,7 +121,6 @@ $conn->close();
     </style>
 </head>
 <body>
-
 
     <div class="topnav">
             <a href="../index.php">Home</a>

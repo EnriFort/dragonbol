@@ -16,13 +16,17 @@ session_start();
 
 // Register user
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $username = $_POST["username"];
-    $email = $_POST["email"];
+    // Validate and sanitize input
+    $username = mysqli_real_escape_string($conn, $_POST["username"]);
+    $email = mysqli_real_escape_string($conn, $_POST["email"]);
     $password = md5($_POST["password"]);
 
-    $sql = "INSERT INTO saiyans (username, email, password) VALUES ('$username', '$email', '$password')";
+    // Prepare and bind SQL statement
+    $sql = "INSERT INTO saiyans (username, email, password) VALUES (?, ?, ?)";
+    $stmt = $conn->prepare($sql);
+    $stmt->bind_param("sss", $username, $email, $password);
 
-    if ($conn->query($sql) === TRUE) {
+    if ($stmt->execute()) {
         // Retrieve the newly created user's ID
         $user_id = $conn->insert_id;
 
@@ -40,3 +44,4 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 $conn->close();
 ?>
+
