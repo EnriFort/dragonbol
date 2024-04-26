@@ -71,15 +71,14 @@
 <body>
     <?php
         // Include database connection and functions to retrieve posts
-        require_once 'db_connect.php'; // Example: change 'db_connect.php' to your actual database connection script
+        require_once 'db_connect.php'; 
         require_once 'functions.php';
 
         // Retrieve selected category from form submission
-        $category = $_GET['category'] ?? '';
+        $category = $_POST['category'] ?? '';
 
         // Retrieve posts from the database 
         $posts = getPosts(); 
-       
         sort($posts);
         $posts = array_reverse($posts);
     ?>
@@ -87,7 +86,6 @@
     <!-- Display Posts -->
     <div class="div-entry-content"> 
         <h3 class="posts-sec">Recent Posts:</h3>
-    
         <br>
         <?php
             foreach ($posts as $post) {

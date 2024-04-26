@@ -1,17 +1,16 @@
 <?php
-// Include your database connection script here
-require_once 'db_connect.php'; // Adjust the path as needed
+require_once 'db_connect.php'; 
 
 // Function to fetch posts from the database
 function getPosts() {
     // Initialize an empty array to store posts
     $posts = array();
 
-    // Connect to your database (replace these variables with your actual database credentials)
-    $servername = "localhost";
-    $username = "enri"; 
-    $password = "password"; 
-    $database = "dragonbol"; 
+    $config = parse_ini_file('D:\xampp\htdocs\config.ini');
+    $servername = $config['hostname'];
+    $username = $config['username']; 
+    $password = $config['password'];
+    $database = $config['database'];
 
     // Create a connection
     $conn = new mysqli($servername, $username, $password, $database);
@@ -64,8 +63,6 @@ function getPostsByCategory($post_category) {
         die("Connection failed: " . $conn->connect_error);
     }
 
-    // Sanitize the input to prevent SQL injection
-    //$category = $conn->real_escape_string($category);
 
     // SQL query to fetch posts by category
     $sql =  "SELECT posts.*, saiyans.username, saiyans.profile_image
@@ -92,12 +89,8 @@ function getPostsByCategory($post_category) {
         }
     }   
 
-    // Close the database connection
     $conn->close();
-
-    // Return the array of posts
     return $posts;
 }
-
 
 ?>

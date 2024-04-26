@@ -11,11 +11,16 @@ if (!isset($_SESSION['user_id'])) {
 
 // Check if the form is submitted
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Database connection (replace with your database connection code)
-    $servername = "localhost";
-    $username = "enri";
-    $password = "password";
-    $database = "dragonbol";
+
+    $config = parse_ini_file('D:\xampp\htdocs\config.ini');
+
+    $servername = $config['hostname'];
+    $username = $config['username'];
+    $password = $config['password'];
+    $database = $config['database'];
+    
+
+
     $conn = new mysqli($servername, $username, $password, $database);
     if ($conn->connect_error) {
         die("Connection failed: " . $conn->connect_error);

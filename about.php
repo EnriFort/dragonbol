@@ -30,10 +30,26 @@
 </head>
 <body>
     
-    <div class="topnav">
-        <a  href="index.php">Home</a>
-        <a class="active" href="about.html">About</a>
+  <div class="topnav">
+    <a  href="index.php">Home</a>
+    <a class="active" href="about.php">About</a>
+    <div class="login-container">
+        <?php
+          // Start the session
+          session_start();
+          $isLoggedIn = isset($_SESSION['user_id']);
+
+          // Check if user is logged in
+          if (isset($_SESSION['user_id'])) {
+              echo '<a href="user/profile.php">Profile</a>';
+              echo '<a href="user/logout.php">Logout</a>';
+          } else {
+              echo '<a href="user/login.html"> Login</a>';
+              echo '<a href="user/register.html"> Register</a>';
+          }
+        ?>  
     </div>
+</div>
     
     <div class="about-section">
       <h2>Our Team</h2>
@@ -63,7 +79,7 @@
 
         <div class="column">
           <div class="card">
-            <img src="img/elle.webp" alt="Elle" style="width:100%">
+            <img src="img/elle.jpg" alt="Elle" style="width:100%">
             <div class="container">
               <h2>Elle</h2>
               <p class="title">Technical Support</p>
@@ -80,28 +96,10 @@
           </div>
         </div>
 
-        <div class="column">
-            <div class="card">
-              <img src="img/dam.jpg" alt="Dam" style="width:100%">
-              <div class="container">
-                <h2>Dam</h2>
-                <p class="title">Moderator</p>
-                <p class="bio">
-                  Greetings, everyone! Meet <strong>Dam</strong>, your friendly neighborhood moderator. 
-                  Passionate about cultivating a positive and welcoming community, Dam 
-                  is dedicated to ensuring that the forum remains a safe and respectful 
-                  space for all users. From guiding discussions to resolving conflicts, 
-                  Dam is committed to fostering a vibrant and inclusive forum environment.
-                </p>
-                <p>dam@aruba.it</p>
-                <p><button class="button">Contact</button></p>
-              </div>
-            </div>
-          </div>
-      
+
         <div class="column">
           <div class="card">
-            <img src="img/emme.jpg" alt="Mike" style="width:100%">
+            <img src="img/emme.webp" alt="Mike" style="width:100%">
             <div class="container">
               <h2>Emme</h2>
               <p class="title">Community Manager</p>
@@ -119,8 +117,28 @@
             </div>
           </div>
         </div>
-      
+
+        <div class="column">
+          <div class="card">
+            <img src="img/dam.webp" alt="Dam" style="width:100%">
+            <div class="container">
+              <h2>Dam</h2>
+              <p class="title">Moderator</p>
+              <p class="bio">
+                Greetings, everyone! Meet <strong>Dam</strong>, your friendly neighborhood moderator. 
+                Passionate about cultivating a positive and welcoming community, Dam 
+                is dedicated to ensuring that the forum remains a safe and respectful 
+                space for all users. From guiding discussions to resolving conflicts, 
+                Dam is committed to fostering a vibrant and inclusive forum environment.
+              </p>
+              <p>dam@aruba.it</p>
+              <p><button class="button">Contact</button></p>
+            </div>
+          </div>
+        </div>        
+
         
+
       </div>
 
 

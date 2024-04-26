@@ -14,6 +14,7 @@
             margin: 0px;
         }
         .entry-title {
+            font-family: 'Arial Black', sans-serif;
             font-size: 36px;
             color: #fef679;
             text-shadow: 3px 3px #d9b308;
@@ -61,7 +62,7 @@
         }
 
         .text {
-            font-size: 18px;
+            font-size: 20px;
         }
 
         hr {
@@ -77,7 +78,7 @@
 
     <div class="topnav">
         <a class="active" href="index.php">Home</a>
-        <a href="about.html">About</a>
+        <a href="about.php">About</a>
         <div class="login-container">
             <?php
                 // Start the session
@@ -99,7 +100,7 @@
     <div class="div-entry-content">
         
         <h1 class="entry-title">DragonBol Hub<img src="img/flyingNimbus.png" alt="Dragon Ball Logo" width="70px" style="vertical-align: middle; padding-left: 10px;"></h1>
-        <figcaption style="font-size: 1em;">Unleash Your Inner Saiyan: Where Fans Gather to Power Up!</figcaption>
+        <figcaption style="font-size: 1em;"><strong>Unleash Your Inner Saiyan: Where Fans Gather to Power Up!</strong></figcaption>
         <br>
 
 
@@ -109,10 +110,10 @@
             </div>
             <div>
                 <p class="div-paragraph text">
-                    <strong>Dive deep into the multiverse of Dragon Ball as fans unite to dissect episodes,
+                    Dive deep into the multiverse of Dragon Ball as fans unite to dissect episodes,
                     analyze characters, speculate on theories, and celebrate the epic legacy of this iconic series. Whether you're a seasoned warrior or a newly awakened fan, join us in exploring every aspect of the Dragon Ball universe. From intense debates to sharing fan art, 
                     DragonBol Hub is your ultimate destination for all things Dragon Ball. Welcome, fellow Saiyans, to your home away from home!
-                    </strong>
+                    
                 </p>
             </div>
         </div>

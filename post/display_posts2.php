@@ -80,7 +80,6 @@
         $post_category = $_POST['category'] ?? '';
 
         // Retrieve posts from the database based on the selected category
-        
         if ($post_category == "all" || empty($post_category)) {
             $posts = getPosts(); // Fetch all posts if no category is selected or if 'all' is selected
         } else {
@@ -95,7 +94,7 @@
     <div class="div-entry-content"> 
         <h3 class="posts-sec">Recent Posts:</h3>
     
-        <form action="index2.php" method="POST">
+        <form action="index.mod.php" method="POST">
             <label for="category">Order by Category:</label>
             <select id="category" name="category">
                 <option value="all" <?php if ($post_category == 'all') echo 'selected'; ?>>All</option>

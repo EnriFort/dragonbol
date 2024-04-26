@@ -1,9 +1,10 @@
 <?php
-// Database connection
-$servername = "localhost";
-$username = "enri"; 
-$password = "password"; 
-$database = "dragonbol"; 
+
+$config = parse_ini_file('D:\xampp\htdocs\config.ini');
+$servername = $config['hostname'];
+$username = $config['username'];
+$password = $config['password'];
+$database = $config['database'];
 
 $conn = new mysqli($servername, $username, $password, $database);
 

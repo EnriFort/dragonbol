@@ -1,8 +1,15 @@
 <?php
-$servername = "localhost";
-$username = "enri"; // default username for XAMPP
-$password = "password"; // default password for XAMPP
-$database = "dragonbol"; // replace with your database name
+
+
+
+// Read database configuration from config.ini
+$config = parse_ini_file('D:\xampp\htdocs\config.ini');
+
+// Assign database credentials to variables
+$servername = $config['hostname'];
+$username = $config['username']; 
+$password = $config['password'];
+$database = $config['database'];
 
 // Create connection
 $conn = new mysqli($servername, $username, $password, $database);

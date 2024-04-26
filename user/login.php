@@ -1,10 +1,10 @@
 <?php
 
-// Database connection
-$servername = "localhost";
-$username = "enri"; 
-$password = "password"; 
-$database = "dragonbol"; 
+$config = parse_ini_file('D:\xampp\htdocs\config.ini');
+$servername = $config['hostname'];
+$username = $config['username'];
+$password = $config['password'];
+$database = $config['database'];
 
 // Define dynamic CSS values
 $fontColor = 'red';
@@ -48,11 +48,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             exit;
         } else {
             // Invalid password
-            include 'login.html';
             echo '<div style="color: ' . $fontColor . ';">';
-            echo '<br>';
             echo "<strong><h2>Invalid Password</h2></strong>";
             echo '</div>';
+            include 'login.html';
+            
         }
     } else {
         // User not found

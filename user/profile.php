@@ -9,11 +9,11 @@ if (!isset($_SESSION['user_id'])) {
     exit;
 }
 
-// Database connection
-$servername = "localhost";
-$username = "enri"; 
-$password = "password"; 
-$database = "dragonbol"; 
+$config = parse_ini_file('D:\xampp\htdocs\config.ini');
+$servername = $config['hostname'];
+$username = $config['username'];
+$password = $config['password'];
+$database = $config['database'];
 
 $conn = new mysqli($servername, $username, $password, $database);
 
@@ -124,7 +124,7 @@ $conn->close();
 
     <div class="topnav">
             <a href="../index.php">Home</a>
-            <a href="../about.html">About</a>
+            <a href="../about.php">About</a>
             <div class="login-container">
                 <?php
                     // Start the session
