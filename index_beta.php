@@ -8,7 +8,6 @@
     <link rel="stylesheet" href="css/navbar.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto&display=swap">
     <style>
-
         body {
             background-color:#b3d4fc;
             margin: 0px;
@@ -78,7 +77,7 @@
 <body>
 
     <div class="topnav">
-        <a class="active" href="index.mod.php">Home</a>
+        <a class="active" href="index_beta.php">Home</a>
         <a href="about.php">About</a>
         <div class="login-container">
             <?php

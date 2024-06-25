@@ -49,11 +49,11 @@ function getPostsByCategory($post_category) {
     // Initialize an empty array to store posts
     $posts = array();
 
-    // Connect to your database (replace these variables with your actual database credentials)
-    $servername = "localhost";
-    $username = "enri"; 
-    $password = "password"; 
-    $database = "dragonbol"; 
+    $config = parse_ini_file('D:\xampp\htdocs\config.ini');
+    $servername = $config['hostname'];
+    $username = $config['username']; 
+    $password = $config['password'];
+    $database = $config['database']; 
 
     // Create a connection
     $conn = new mysqli($servername, $username, $password, $database);

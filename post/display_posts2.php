@@ -94,7 +94,7 @@
     <div class="div-entry-content"> 
         <h3 class="posts-sec">Recent Posts:</h3>
     
-        <form action="index.mod.php" method="POST">
+        <form action="index_beta.php" method="POST">
             <label for="category">Order by Category:</label>
             <select id="category" name="category">
                 <option value="all" <?php if ($post_category == 'all') echo 'selected'; ?>>All</option>

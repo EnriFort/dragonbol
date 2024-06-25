@@ -20,7 +20,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Validate and sanitize input
     $username = mysqli_real_escape_string($conn, $_POST["username"]);
     $email = mysqli_real_escape_string($conn, $_POST["email"]);
-    $password = md5($_POST["password"]);
+    $password = password_hash($_POST["password"], PASSWORD_BCRYPT);
 
     // Prepare and bind SQL statement
     $sql = "INSERT INTO saiyans (username, email, password) VALUES (?, ?, ?)";

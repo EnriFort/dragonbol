@@ -39,7 +39,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $hashed_password = $row["password"];
 
         // Verify password using password_verify function
-        if (md5($password) === $row["password"]) {
+        if (password_verify($_POST["password"], $row["password"])) {
             // Store user ID in session variable
             $_SESSION['user_id'] = $row['id'];
 

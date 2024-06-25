@@ -8,7 +8,6 @@
     <link rel="stylesheet" href="css/navbar.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto&display=swap">
     <style>
-        
         body {
             background-color:#b3d4fc;
             margin: 0px;

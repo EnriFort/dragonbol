@@ -133,7 +133,7 @@ $conn->close();
 
                     // Check if user is logged in
                     if (isset($_SESSION['user_id'])) {
-                        echo '<a class="active" href="user/profile.php">Profile</a>';
+                        echo '<a class="active" href="profile.php">Profile</a>';
                         echo '<a href="user/../logout.php">Logout</a>';
                     } else {
                         echo '<a href="user/login.html"> Login</a>';
